@@ -1,194 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<script>
-function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML =
-    h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-</script>
-	<title></title>
-</head>
-<body onload="startTime">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar1">
+    <ul class="navbar-nav ml-auto"> 
+<li class="nav-item active">
+<a class="nav-link" href="http://bootstrap-ecommerce.com">Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item"><a class="nav-link" href="html-components.html"> Documentation </a></li>
+<li class="nav-item dropdown">
+	<a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Dropdown  </a>
+    <ul class="dropdown-menu">
+	  <li><a class="dropdown-item" href="#"> Menu item 1</a></li>
+	  <li><a class="dropdown-item" href="#"> Menu item 2 </a></li>
+    </ul>
+</li>
+<li class="nav-item">
+<a class="btn ml-2 btn-warning" href="http://bootstrap-ecommerce.com">Download</a></li>
+    </ul>
+  </div>
+</nav>
 
 
 
-<style>
-	.error{
-		color: red;
 
-	}
-</style>
+<div class="container">
+        <br> 
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<!-- .//container -->
 
-<script type="application/javascript">
-	
-	function isNumberKey(evt){
-
-		var charCode = (evt.which) ? evt.which : event.keyCode
-
-		if (charCode > 31 && (charCode < 48 || charCode > 57))
-
-			return false;
-		return true;
-	}
-
-
-
-</script>
-
-<script type="text/javascript">
-        history.pushState(null, null, location.href);
-        window.onpopstate = function()
-        {
-            history.go(1);
-        };
-    </script>
-<script type="text/javascript">
-	
-function isNumberKey(evt){  <!--Function to accept only numeric values-->
-    //var e = evt || window.event;
-	var charCode = (evt.which) ? evt.which : evt.keyCode
-    if (charCode != 46 && charCode > 31 
-	&& (charCode < 48 || charCode > 57))
-        return false;
-        return true;
-	}
-		   
-    function ValidateAlpha(evt)
-    {
-        var keyCode = (evt.which) ? evt.which : evt.keyCode
-        if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32)
-         
-        return false;
-            return true;
-    }
-</script>
-<center>
-	<div id="txt"></div>
-	<form method="POST" class="bord">
-		<body class="bdyreg">
-		<div  class="registe">
-		<h2>Create Pet Owner's Account</h2>
-		<h5>Please fill in this form to create an account.</h5>
-
-
-				
-		
-		<br>
-		
-
-		
-			<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i> <?php echo $first_nameErr;?></span>
-									<input type="text" class="form-control" required="" onKeyPress="return ValidateAlpha(event);" name="first_name" id="email"  placeholder="First Name" value="<?php echo $first_name;?>" />
-					
-								</div>
-
-				
-					
-					<br>
-					
-			<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i> <?php echo $middle_nameErr;?></span>
-									<input type="text" class="form-control" required="" onKeyPress="return ValidateAlpha(event);"  name="middle_name" id="email"  placeholder="Middle Name" value="<?php echo $middle_name;?>" />
-					
-								</div>
-<br>
-			
-					<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-edit" required=""  aria-hidden="true"></i> <?php echo $last_nameErr;?></span>
-									<input type="text" class="form-control" name="last_name" onKeyPress="return ValidateAlpha(event);" id="email"  placeholder="Last Name" value="<?php echo $last_name;?>" />
-					
-								</div>			
-					<br>
-
-					
-								<div class="input-group" style="width: 50%;">
-										
-<select id="tb1" name="preffix">
-
-									<option name="preffix" id="preffix" value="+63" <?php if($preffix == "+63") {echo "selected"; }?>>+63</option>
-									
-								</select>	
-								<span class="error"><?php echo $preffixErr;?> </span>
-									<span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i> <?php echo $seven_digitErr;?></span>
-									<input type="text" class="form-control" required=""  maxlength="10" name="seven_digit" id="email"  placeholder="Cellphone No." value="<?php echo $seven_digit;?>"onkeypress='return isNumberKey(event)' />
-								</div>
-								<br>
-					<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo $TelephoneErr;?></span>
-									<input type="text" class="form-control"  required=""  maxlength="8" name="Telephones" id="email"  placeholder="Telepone No." value="<?php echo $Telephone;?>"onkeypress='return isNumberKey(event)' />
-									<span class="error"><?php echo $preffixErr;?> </span>
-					
-								</div>
-									<br>
-								<div class="input-group" style="width: 50%;">
-								
-									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $addresssErr;?></span>
-									<input type="text" class="form-control" required=""  name="add_ress" id="email"  placeholder="Address" value="<?php echo $addresss;?>" />
-								</div>
-								
-					<br>
-								<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i> <?php echo $emailErr;?></span>
-									<input type="email" class="form-control" required=""  name="email" id="email"  placeholder="Enter your Email" value="<?php echo $email;?>" />
-					
-								</div>
-							
-								
-		<br>
-					<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-paw" aria-hidden="true"></i> <?php echo $PetnameErr;?></span>
-									<input type="text" class="form-control" required=""  name="petname" id="email"  placeholder="Pet Name" value="<?php echo $Petname;?>" />
-					
-								</div>
-<br>			
-						<div class="input-group" style="width: 50%;">
-									<span class="input-group-addon"><i class="fa fa-paw" aria-hidden="true"></i> <?php echo $Breed;?></span>
-									<input type="text" class="form-control" required=""  onKeyPress="return ValidateAlpha(event);" name="Breeed" id="email"  placeholder="Pet Breed" value="<?php echo $Breed;?>" />
-					
-								</div>
-								<br>
-								<div class="input-group" style="width: 30%;">
-									<span class="input-group-addon"><i class="" aria-hidden="true"></i> <?php echo $Age;?></span>
-									<input type="text" class="form-control" required=""  maxlength="2" onkeypress='return isNumberKey(event)' name="Agee" id="email"  placeholder="Pet Age" value="<?php echo $Age;?>"  />
-					
-								</div>
-
-					<br>
-					
-								<select id="tb2" name="gender" required="">
-								<option name="gender" value="" hidden="" required>	Select PET Gender </option>
-							
-				<option name="gender" value="Male" <?php if($gender == "Male") {echo "selected"; } ?> >Male</option>
-									
-									<option name="gender" value="Female"<?php if($gender == "Female") {echo "selected"; }?> >
-									Female </option>
-
-							
-							</select>
-					
-							
-									<br>
-								<input type="submit" class="btn btn-primary" name="btnRegister" value="Register">
-				
-
-	
-		</div>				
-		
-
-</body>
-	</form>
-	</body>
-</html>
+<br><br><br><br><br><br><br><br><br><br>
+<article class="bg-secondary mb-3">  
+<div class="card-body text-center">
+    <h4 class="text-white">HTML UI KIT <br> Ready to use Bootstrap 4 components and templates </h4>
+<p class="h5 text-white"> for Ecommerce, marketplace, booking websites 
+and product landing pages</p>   <br>
+<p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
+ <i class="fa fa-window-restore "></i></a></p>
+</div>
+<br><br>
+</article>
